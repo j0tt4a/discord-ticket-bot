@@ -8,6 +8,8 @@ import random
 # ================== CONFIG ==================
 import os
 TOKEN = os.getenv('DISCORD_TOKEN')  # Railway lo inyecta aquí
+print(f"TOKEN length: {len(TOKEN) if TOKEN else 0}")
+print(f"TOKEN preview: {TOKEN[:10] if TOKEN else 'None'}...")
 if not TOKEN:
     raise ValueError("Falta DISCORD_TOKEN en variables")
 GUILD_ID = 1465457571245719749         # ID del servidor
@@ -313,3 +315,4 @@ async def setup_reportes_error(interaction: discord.Interaction, error):
 
 
 bot.run(TOKEN)
+
