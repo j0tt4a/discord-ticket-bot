@@ -6,7 +6,10 @@ import datetime
 import random
 
 # ================== CONFIG ==================
-TOKEN = "TU_TOKEN"  # ← Railway lo pone aquí
+import os
+TOKEN = os.getenv('DISCORD_TOKEN')  # Railway lo inyecta aquí
+if not TOKEN:
+    raise ValueError("Falta DISCORD_TOKEN en variables")
 GUILD_ID = 1465457571245719749         # ID del servidor
 VERIFY_CHANNEL_ID = 1466008444937965742  # Canal donde va el mensaje de verificación
 REPORTS_CHANNEL_ID = 1466011823538176090 # Canal "Reportes o Dudas"
@@ -307,5 +310,6 @@ async def setup_reportes_error(interaction: discord.Interaction, error):
 
 
 # ================== ARRANCAR BOT ==================
+
 
 bot.run(TOKEN)
